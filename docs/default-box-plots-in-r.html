@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 12 Default Box Plots in R | 101 Default R Graphs</title>
+  <meta name="description" content="Default R Graphs">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 12 Default Box Plots in R | 101 Default R Graphs" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Default R Graphs" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Default Box Plots in R | 101 Default R Graphs" />
+  
+  <meta name="twitter:description" content="Default R Graphs" />
+  
+
+<meta name="author" content="Cevi Herdian">
+
+
+<meta name="date" content="2019-05-15">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="default-pie-charts-in-r.html">
+<link rel="next" href="qq-plots-quantile-quantile-plots.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="">101 R Programming Series</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="creating-and-saving-graphs-in-r.html"><a href="creating-and-saving-graphs-in-r.html"><i class="fa fa-check"></i><b>2</b> Creating and Saving Graphs in R</a></li>
+<li class="chapter" data-level="3" data-path="standard-graphical-formatting-in-r.html"><a href="standard-graphical-formatting-in-r.html"><i class="fa fa-check"></i><b>3</b> Standard graphical formatting in R</a></li>
+<li class="chapter" data-level="4" data-path="default-bar-plots-in-r.html"><a href="default-bar-plots-in-r.html"><i class="fa fa-check"></i><b>4</b> Default Bar plots in R</a></li>
+<li class="chapter" data-level="5" data-path="default-histogram-and-density-plots-in-r.html"><a href="default-histogram-and-density-plots-in-r.html"><i class="fa fa-check"></i><b>5</b> Default Histogram and Density Plots in R</a></li>
+<li class="chapter" data-level="6" data-path="default-line-plots-in-r.html"><a href="default-line-plots-in-r.html"><i class="fa fa-check"></i><b>6</b> Default Line Plots in R</a></li>
+<li class="chapter" data-level="7" data-path="default-scatter-plots-in-r.html"><a href="default-scatter-plots-in-r.html"><i class="fa fa-check"></i><b>7</b> Default Scatter Plots in R</a></li>
+<li class="chapter" data-level="8" data-path="default-scatter-plot-matrices-in-r.html"><a href="default-scatter-plot-matrices-in-r.html"><i class="fa fa-check"></i><b>8</b> Default Scatter Plot Matrices in R</a></li>
+<li class="chapter" data-level="9" data-path="strip-charts1-d-scatter-plots.html"><a href="strip-charts1-d-scatter-plots.html"><i class="fa fa-check"></i><b>9</b> Strip charts:1-D scatter plots</a></li>
+<li class="chapter" data-level="10" data-path="default-dot-plots-in-r.html"><a href="default-dot-plots-in-r.html"><i class="fa fa-check"></i><b>10</b> Default Dot Plots in R</a></li>
+<li class="chapter" data-level="11" data-path="default-pie-charts-in-r.html"><a href="default-pie-charts-in-r.html"><i class="fa fa-check"></i><b>11</b> Default Pie Charts in R</a></li>
+<li class="chapter" data-level="12" data-path="default-box-plots-in-r.html"><a href="default-box-plots-in-r.html"><i class="fa fa-check"></i><b>12</b> Default Box Plots in R</a></li>
+<li class="chapter" data-level="13" data-path="qq-plots-quantile-quantile-plots.html"><a href="qq-plots-quantile-quantile-plots.html"><i class="fa fa-check"></i><b>13</b> QQ-Plots: Quantile-Quantile Plots</a></li>
+<li class="chapter" data-level="14" data-path="means-and-confidence-intervals.html"><a href="means-and-confidence-intervals.html"><i class="fa fa-check"></i><b>14</b> Means and Confidence Intervals</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">101 Default R Graphs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="default-box-plots-in-r" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Default Box Plots in R</h1>
+<p><strong>Basic box plots:</strong></p>
+<p>Example-1:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Boxplot of MPG by Car Cylinders </span>
+<span class="kw">boxplot</span>(mpg<span class="op">~</span>cyl,<span class="dt">data=</span>mtcars, <span class="dt">main=</span><span class="st">&quot;Car Milage Data&quot;</span>, 
+   <span class="dt">xlab=</span><span class="st">&quot;Number of Cylinders&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Miles Per Gallon&quot;</span>,<span class="dt">col=</span><span class="st">&quot;lightblue&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p>Example-2:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">0</span>)<span class="op">+</span>.<span class="dv">5</span>, <span class="dt">mgp=</span><span class="kw">c</span>(<span class="fl">1.6</span>,.<span class="dv">6</span>,<span class="dv">0</span>))
+<span class="co"># Box plot of one variable</span>
+<span class="kw">boxplot</span>(ToothGrowth<span class="op">$</span>len,<span class="dt">col=</span><span class="st">&quot;lightblue&quot;</span>)
+<span class="co"># Box plots by groups (dose)</span>
+<span class="co"># remove frame</span>
+<span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth, <span class="dt">frame =</span> <span class="ot">FALSE</span>,<span class="dt">col=</span><span class="st">&quot;pink&quot;</span>)
+<span class="co"># Horizontal box plots</span>
+<span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth, <span class="dt">frame =</span> <span class="ot">FALSE</span>,
+        <span class="dt">horizontal =</span> <span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;green&quot;</span>)
+<span class="co"># Notched box plots</span>
+<span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth, <span class="dt">frame =</span> <span class="ot">FALSE</span>,
+        <span class="dt">notch =</span> <span class="ot">TRUE</span>,<span class="dt">col=</span><span class="st">&quot;#C861D3&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p><strong>Change group names:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(ToothGrowth<span class="op">$</span>len <span class="op">~</span><span class="st"> </span>ToothGrowth<span class="op">$</span>dose, <span class="dt">data =</span> ToothGrowth, <span class="dt">frame =</span> <span class="ot">FALSE</span>,
+        <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Dose 0.5&quot;</span>, <span class="st">&quot;Dose 1&quot;</span>, <span class="st">&quot;Dose 2&quot;</span>),<span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<p><strong>Change color:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">0</span>)<span class="op">+</span>.<span class="dv">5</span>, <span class="dt">mgp=</span><span class="kw">c</span>(<span class="fl">1.6</span>,.<span class="dv">6</span>,<span class="dv">0</span>))
+
+<span class="co"># Change the color of border using one single color</span>
+<span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth, <span class="dt">frame =</span> <span class="ot">FALSE</span>,
+        <span class="dt">border =</span> <span class="st">&quot;steelblue&quot;</span>)
+<span class="co"># Change the color of border.</span>
+<span class="co">#  Use different colors for each group</span>
+<span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth, <span class="dt">frame =</span> <span class="ot">FALSE</span>,
+        <span class="dt">border =</span> <span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#56B4E9&quot;</span>))
+<span class="co"># Change fill color : single color</span>
+<span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth, <span class="dt">frame =</span> <span class="ot">FALSE</span>,
+        <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>)
+<span class="co"># Change fill color: multiple colors</span>
+<span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth, <span class="dt">frame =</span> <span class="ot">FALSE</span>,
+        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#56B4E9&quot;</span>))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
+<p><strong>Multiple box plots:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>supp<span class="op">*</span>dose, <span class="dt">data =</span> ToothGrowth,
+        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;steelblue&quot;</span>), <span class="dt">frame =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
+<p><strong>Main title and axis labels:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change axis titles</span>
+<span class="co"># Change color (col = &quot;gray&quot;) and remove frame</span>
+<span class="co"># Create notched box plot</span>
+<span class="kw">boxplot</span>(len <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> ToothGrowth,
+        <span class="dt">main =</span> <span class="st">&quot;Plot of length by dose&quot;</span>,
+        <span class="dt">xlab =</span> <span class="st">&quot;Dose (mg)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Length&quot;</span>,
+        <span class="dt">col =</span> <span class="st">&quot;lightgray&quot;</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<p><strong>Notched Boxplot:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Notched Boxplot of Tooth Growth Against 2 Crossed Factors</span>
+<span class="co"># boxes colored for ease of interpretation </span>
+<span class="kw">boxplot</span>(len<span class="op">~</span>supp<span class="op">*</span>dose, <span class="dt">data=</span>ToothGrowth, <span class="dt">notch=</span><span class="ot">FALSE</span>, 
+  <span class="dt">col=</span>(<span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;darkgreen&quot;</span>)),
+  <span class="dt">main=</span><span class="st">&quot;Tooth Growth&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Suppliment and Dose&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p><strong>Additional box plots-&gt;</strong></p>
+<ul>
+<li><code>vioplot</code> function from <strong>vioplot</strong> package</li>
+<li><code>bagplot(x, y)</code> function from <strong>aplpack</strong> package</li>
+</ul>
+<p>Example-1:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Violin Plots</span>
+<span class="co">#install.packages(&quot;vioplot&quot;)</span>
+<span class="kw">library</span>(vioplot)
+x1 &lt;-<span class="st"> </span>mtcars<span class="op">$</span>mpg[mtcars<span class="op">$</span>cyl<span class="op">==</span><span class="dv">4</span>]
+x2 &lt;-<span class="st"> </span>mtcars<span class="op">$</span>mpg[mtcars<span class="op">$</span>cyl<span class="op">==</span><span class="dv">6</span>]
+x3 &lt;-<span class="st"> </span>mtcars<span class="op">$</span>mpg[mtcars<span class="op">$</span>cyl<span class="op">==</span><span class="dv">8</span>]
+<span class="kw">vioplot</span>(x1, x2, x3, <span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;4 cyl&quot;</span>, <span class="st">&quot;6 cyl&quot;</span>, <span class="st">&quot;8 cyl&quot;</span>), 
+   <span class="dt">col=</span><span class="st">&quot;lightblue&quot;</span>)
+<span class="kw">title</span>(<span class="st">&quot;Violin Plots of Miles Per Gallon&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<p>Example-2:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example of a Bagplot</span>
+<span class="co">#install.packages(&quot;aplpack&quot;)</span>
+<span class="kw">library</span>(aplpack)</code></pre></div>
+<pre><code>## Loading required package: tcltk</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(mtcars)
+<span class="kw">bagplot</span>(wt,mpg, <span class="dt">xlab=</span><span class="st">&quot;Car Weight&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Miles Per Gallon&quot;</span>,
+  <span class="dt">main=</span><span class="st">&quot;Bagplot Example&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="default-pie-charts-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qq-plots-quantile-quantile-plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/11.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
